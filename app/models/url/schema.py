@@ -2,6 +2,7 @@ from pydantic import BaseModel
 from datetime import datetime
 
 
+# Модель данных API
 class Url(BaseModel):
     url: str
     creation_date: datetime = datetime.now()

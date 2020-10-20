@@ -2,6 +2,7 @@ from sqlalchemy import Column, String, Integer, DateTime
 from db.session import Base
 
 
+# Модель таблицы в БД
 class Url(Base):
     __tablename__ = 'urls'
     id = Column(Integer, primary_key=True)
