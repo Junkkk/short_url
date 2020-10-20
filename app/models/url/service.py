@@ -3,7 +3,7 @@ from app.models.url import schema, model
 from datetime import timedelta
 
 
-#
+# Запись URL и параметров в БД
 def create_short_url(db: Session, item: schema.Url):
     db_item = model.Url(**item.dict())
     db_item.end_date = db_item.creation_date + timedelta(days=db_item.existence_days)
@@ -13,10 +13,12 @@ def create_short_url(db: Session, item: schema.Url):
     return db_item
 
 
+# Получиние записи из БД по id
 def get_url_id(db: Session, url_id: int):
     return db.query(model.Url).get(url_id)
 
 
+# Получение записи из БД по специальному URL
 def get_url_special(db: Session, special_url: str):
     out_data = db.query(model.Url).filter_by(special_url=special_url).first()
     return out_data
