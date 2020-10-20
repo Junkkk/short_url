@@ -11,3 +11,13 @@ def create_short_url(db: Session, item: schema.Url):
     db.commit()
     db.refresh(db_item)
     return db_item
+
+
+def get_url_id(db: Session, url_id: int):
+    return db.query(model.Url).get(url_id)
+
+
+def get_url_special(db: Session, special_url: str):
+    out_data = db.query(model.Url).filter_by(special_url=special_url).first()
+    print(out_data)
+    return out_data

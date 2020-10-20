@@ -9,4 +9,4 @@ class Url(Base):
     creation_date = Column(DateTime)
     end_date = Column(DateTime)
     existence_days = Column(Integer)
-    special_url = Column(String)
+    special_url = Column(String, unique=True)
