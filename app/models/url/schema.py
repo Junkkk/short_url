@@ -11,3 +11,4 @@ class Url(BaseModel):
 
 class UrlDB(Url):
     id: int
+    end_date: datetime

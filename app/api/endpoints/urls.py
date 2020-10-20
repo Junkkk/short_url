@@ -3,7 +3,7 @@ import short_url
 
 from fastapi.responses import RedirectResponse
 from fastapi import APIRouter
-from app.models.url import schema
+from app.models.url import schema, service
 
 
 router = APIRouter()
@@ -29,9 +29,4 @@ async def create_short_url(item: schema.Url):
             out_url = "error"
     else:
         out_url = "http://127.0.0.1:8000/" + short_url.encode_url(1)
-    return {
-        "url": item.url,
-        "date": item.creation_date,
-        "days": item.existence_days,
-        "short_url": out_url
-    }
+    return service.create_short_url()
