@@ -5,10 +5,13 @@ from db.session import SessionLocal
 from app.api.routers import router
 
 
+# Инициализация приложения
 app = FastAPI()
+# Подключение всех эндпоинтов
 app.include_router(router)
 
 
+# Middleware слой для открытия и закрытия текущей сессиии с БД
 @app.middleware("http")
 async def db_session_middleware(request: Request, call_next):
     response = Response("Internal server error", status_code=500)
