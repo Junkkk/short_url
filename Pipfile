@@ -12,6 +12,7 @@ validators = "*"
 short-url = "*"
 alembic = "*"
 psycopg2-binary = "*"
+python-dotenv = "*"
 
 [requires]
 python_version = "3.8"
