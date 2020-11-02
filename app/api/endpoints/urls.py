@@ -33,7 +33,7 @@ async def read_url(
             return RedirectResponse(url_obj.url)
         raise ValueError
     except ValueError:
-        raise HTTPException(status_code=400, detail='Не существующий URL')
+        raise HTTPException(status_code=404, detail='Не существующий URL')
 
 
 # Эндпоинт крафта короткого URL
